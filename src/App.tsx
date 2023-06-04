@@ -1,11 +1,31 @@
-import { createSignal, type Component } from "solid-js";
+import { type Component, For } from "solid-js";
+import WilayaName from "./components/WilayaName";
+import WilayaImage from "./components/WilayaImage";
+import wilayas, { type Wilaya } from "./data/wilayas";
+import { activeIndex } from "./store";
 
 const App: Component = () => {
-  const [count, setCount] = createSignal(0);
   return (
-    <div>
-      <button onclick={() => setCount(count() + 1)}>Count</button>
-      <h3>{count()}</h3>
+    <div class="app">
+      <ul class="wilayas-names-list">
+        <For each={wilayas}>
+          {(wilaya: Wilaya, index) => (
+            <WilayaName name={wilaya.name} index={index()} />
+          )}
+        </For>
+      </ul>
+      <ul class="wilayas-images-list">
+        <For each={wilayas}>
+          {(wilaya: Wilaya, index) => {
+            return (
+              <WilayaImage
+                src={wilaya.imageURL}
+                isActive={index() === activeIndex()}
+              />
+            );
+          }}
+        </For>
+      </ul>
     </div>
   );
 };
