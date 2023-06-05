@@ -9,6 +9,13 @@ const App: Component = () => {
   const mousePosition = createMousePosition();
   return (
     <div class="app">
+      <div class="page-info">
+        <h2>algeria land</h2>
+        <p>
+          Visually captivating website that showcases the beauty of some
+          Algerian states through stunning images.
+        </p>
+      </div>
       <ul class="wilayas-names-list">
         <For each={wilayas}>
           {(wilaya: Wilaya, index) => (
@@ -31,6 +38,11 @@ const App: Component = () => {
           }}
         </For>
       </ul>
+      <div class="credit">
+        <a href="https://github.com/nadjib-boum/" target="_blank">
+          Nadjib Boumekhiet
+        </a>
+      </div>
     </div>
   );
 };

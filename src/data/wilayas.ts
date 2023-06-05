@@ -34,7 +34,7 @@ const wilayas: Wilaya[] = [
   },
   {
     name: "algiers",
-    imageURL: "algiers.jpg",
+    imageURL: "algiers-2.jpg",
   },
   {
     name: "djanet",
@@ -60,19 +60,13 @@ const wilayas: Wilaya[] = [
     name: "Bordj Bou Arreridj",
     imageURL: "Bordj Bou Arreridj.jpg",
   },
-  /*
-  {
-    name: "ghardaia",
-    imageURL: "ghardaia-2.jpg",
-  },
-  */
   {
     name: "setif",
     imageURL: "setif-2.jpg",
   },
   {
     name: "algiers",
-    imageURL: "algiers-2.jpg",
+    imageURL: "algiers.jpg",
   },
   {
     name: "mila",
@@ -90,12 +84,6 @@ const wilayas: Wilaya[] = [
     name: "chrea",
     imageURL: "chrea.jpg",
   },
-  /*
-  {
-    name: "ghardaia",
-    imageURL: "ghardaia.jpg",
-  },
-  */
 ];
 
 export default wilayas;
