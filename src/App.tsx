@@ -1,10 +1,12 @@
-import { type Component, For } from "solid-js";
+import { type Component, For, createEffect } from "solid-js";
 import WilayaName from "./components/WilayaName";
 import WilayaImage from "./components/WilayaImage";
 import wilayas, { type Wilaya } from "./data/wilayas";
 import { activeIndex } from "./store";
+import { createMousePosition } from "./primtives";
 
 const App: Component = () => {
+  const mousePosition = createMousePosition();
   return (
     <div class="app">
       <ul class="wilayas-names-list">
@@ -21,6 +23,9 @@ const App: Component = () => {
               <WilayaImage
                 src={wilaya.imageURL}
                 isActive={index() === activeIndex()}
+                mousePosition={
+                  index() === activeIndex() ? mousePosition() : { x: 0, y: 0 }
+                }
               />
             );
           }}
