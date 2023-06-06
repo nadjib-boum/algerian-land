@@ -4,7 +4,7 @@ import {
   createEffect,
   onCleanup,
 } from "solid-js";
-import { type MousePosition } from "../primtives";
+import { type MousePosition } from "../../../primtives";
 
 type WilayaImageProps = {
   src: string;
@@ -28,7 +28,6 @@ const WilayaImage: Component<WilayaImageProps> = (props) => {
     const onPageLoad = () => {
       if (ref) {
         const { height, width } = ref.getBoundingClientRect();
-        console.log(height, width);
         setDimensions({ height, width });
       }
     };
@@ -52,6 +51,7 @@ const WilayaImage: Component<WilayaImageProps> = (props) => {
             props.mousePosition.x - dimensions()?.width! / 2
           }px,${props.mousePosition.y - dimensions()?.height! / 2}px)`,
         }}
+        loading="lazy"
       />
     </li>
   );

@@ -1,5 +1,5 @@
 import { type Component } from "solid-js";
-import { setActiveIndex } from "../store";
+import { setActiveIndex } from "../../../store";
 
 type WilayaNameProps = {
   name: string;

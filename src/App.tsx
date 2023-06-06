@@ -1,48 +1,19 @@
-import { type Component, For, createEffect } from "solid-js";
-import WilayaName from "./components/WilayaName";
-import WilayaImage from "./components/WilayaImage";
-import wilayas, { type Wilaya } from "./data/wilayas";
-import { activeIndex } from "./store";
-import { createMousePosition } from "./primtives";
+import { type Component } from "solid-js";
+import Cursor from "./components/cursor";
+import Header from "./components/sections/header";
+import First from "./components/sections/first";
+import Wilayas from "./components/sections/Wilayas";
+import Slider from "./components/sections/slider";
 
 const App: Component = () => {
-  const mousePosition = createMousePosition();
   return (
     <div class="app">
-      <div class="page-info">
-        <h2>algeria land</h2>
-        <p>
-          Visually captivating website that showcases the beauty of some
-          Algerian states through stunning images.
-        </p>
-      </div>
-      <ul class="wilayas-names-list">
-        <For each={wilayas}>
-          {(wilaya: Wilaya, index) => (
-            <WilayaName name={wilaya.name} index={index()} />
-          )}
-        </For>
-      </ul>
-      <ul class="wilayas-images-list">
-        <For each={wilayas}>
-          {(wilaya: Wilaya, index) => {
-            return (
-              <WilayaImage
-                src={wilaya.imageURL}
-                isActive={index() === activeIndex()}
-                mousePosition={
-                  index() === activeIndex() ? mousePosition() : { x: 0, y: 0 }
-                }
-              />
-            );
-          }}
-        </For>
-      </ul>
-      <div class="credit">
-        <a href="https://github.com/nadjib-boum/" target="_blank">
-          Nadjib Boumekhiet
-        </a>
-      </div>
+      <Cursor isPrimary={true} />
+      <Cursor />
+      <Header />
+      <First />
+      <Wilayas />
+      <Slider />
     </div>
   );
 };
