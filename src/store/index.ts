@@ -1,4 +1,8 @@
 import { createSignal } from "solid-js";
 
+export type CursorType = "default" | "wilaya" | "slider";
+
 const [activeIndex, setActiveIndex] = createSignal<number>(-1);
-export { activeIndex, setActiveIndex };
+const [cursorType, setCursorType] = createSignal<CursorType>("default");
+
+export { activeIndex, setActiveIndex, cursorType, setCursorType };

@@ -1,13 +1,8 @@
-import {
-  type Component,
-  For,
-  createEffect,
-  onCleanup,
-  onMount,
-} from "solid-js";
+import { type Component, For, createEffect, onCleanup } from "solid-js";
 import Slide from "./Slide";
 import sliderImages from "../../../data/slides";
 import { clamp } from "../../../helpers";
+import { setCursorType } from "../../../store";
 
 type SliderState = {
   hasMousePress: boolean;
@@ -24,6 +19,7 @@ const Slider: Component = (props) => {
     transformAmount: 0,
     requestAnimatiomId: 0,
   };
+
   const mouseDown = (event: MouseEvent) => {
     sliderState.hasMousePress = true;
     sliderState.startXPosition = event.pageX - sliderState.transformAmount;
@@ -32,6 +28,7 @@ const Slider: Component = (props) => {
     sliderState.hasMousePress = false;
   };
   const mouseLeave = () => {
+    setCursorType("default");
     sliderState.hasMousePress = false;
   };
   const mouseMove = (event: MouseEvent) => {
@@ -46,16 +43,23 @@ const Slider: Component = (props) => {
     sliderState.transformAmount = clampedDistance;
     sliderRef!.style.transform = `translate3d(${clampedDistance}px,0,0)`;
   };
+
+  const mouseEnter = (e: MouseEvent) => {
+    setCursorType("slider");
+  };
+
   createEffect(() => {
     sliderRef?.addEventListener("mousedown", mouseDown);
     sliderRef?.addEventListener("mouseup", mouseUp);
     sliderRef?.addEventListener("mouseleave", mouseLeave);
     sliderRef?.addEventListener("mousemove", mouseMove);
+    sliderRef?.addEventListener("mouseenter", mouseEnter);
     onCleanup(() => {
       sliderRef?.removeEventListener("mousedown", mouseDown);
       sliderRef?.removeEventListener("mouseup", mouseUp);
       sliderRef?.removeEventListener("mouseleave", mouseLeave);
       sliderRef?.removeEventListener("mousemove", mouseMove);
+      sliderRef?.removeEventListener("mouseenter", mouseEnter);
     });
   });
 

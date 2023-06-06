@@ -35,10 +35,50 @@ ul {
   &.primary {
     --d: 20px;
     background-color: #111;
+    transition: opacity 0.3s, transform 0.3s ease-out;
+    &.wilaya-cursor {
+      opacity: 0;
+    }
+    &.slider-cursor {
+      transform: translate3d(
+          calc(var(--x, 0) - 50%),
+          calc(var(--y, 0) - 50%),
+          0
+        )
+        scale(3);
+      &::before,
+      &::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        color: #fff;
+        font-size: 6px;
+        transform: translateY(-50%);
+      }
+      &::before {
+        content: "←";
+        left: 0;
+      }
+      &::after {
+        content: "→";
+        right: 0;
+      }
+    }
   }
   &.secondary {
     --d: 48px;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+    &.wilaya-cursor {
+      transform: translate3d(
+          calc(var(--x, 0) - 50%),
+          calc(var(--y, 0) - 50%),
+          0
+        )
+        scale(2.3);
+    }
+    &.slider-cursor {
+      opacity: 0;
+    }
   }
 }
 
@@ -143,7 +183,6 @@ ul {
       color: $main-color;
       letter-spacing: 2px;
       transition: opacity 0.3s ease-out;
-      cursor: pointer;
       z-index: 2;
       &:hover {
         opacity: 1;

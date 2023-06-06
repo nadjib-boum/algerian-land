@@ -1,5 +1,5 @@
 import { type Component } from "solid-js";
-import { setActiveIndex } from "../../../store";
+import { setActiveIndex, setCursorType } from "../../../store";
 
 type WilayaNameProps = {
   name: string;
@@ -7,11 +7,21 @@ type WilayaNameProps = {
 };
 
 const WilayaName: Component<WilayaNameProps> = (props) => {
+  const handleMouseEnter = (e: MouseEvent) => {
+    setActiveIndex(props.index);
+    setCursorType("wilaya");
+  };
+
+  const handleMouseLeave = (e: MouseEvent) => {
+    setActiveIndex(-1);
+    setCursorType("default");
+  };
+
   return (
     <li
       class="wilaya-title"
-      onmouseenter={() => setActiveIndex(props.index)}
-      onmouseleave={() => setActiveIndex(-1)}
+      onmouseenter={handleMouseEnter}
+      onmouseleave={handleMouseLeave}
     >
       <span>{props.name}</span>
     </li>
