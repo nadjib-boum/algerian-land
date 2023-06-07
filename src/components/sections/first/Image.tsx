@@ -1,7 +1,7 @@
 import { type Component } from "solid-js";
 
 type ImageProps = {
-  scrollY: number;
+  scrollY?: number;
 };
 
 const Image: Component<ImageProps> = (props) => {

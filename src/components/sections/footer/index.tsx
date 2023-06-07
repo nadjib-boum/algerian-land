@@ -1,8 +1,9 @@
 import { type Component } from "solid-js";
 
-const CreditSection: Component = () => {
+const Footer: Component = () => {
   return (
-    <div class="credit">
+    <div class="footer">
+      By
       <a href="https://github.com/nadjib-boum/" target="_blank">
         Nadjib Boumekhiet
       </a>
@@ -10,4 +11,4 @@ const CreditSection: Component = () => {
   );
 };
 
-export default CreditSection;
+export default Footer;

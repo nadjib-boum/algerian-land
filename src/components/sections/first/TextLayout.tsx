@@ -13,8 +13,10 @@ const Text: Component<TextProps> = (props) => {
     >
       <h1>
         algeria algeria algeria algeria algeria algeria algeria algeria algeria
+        algeria algeria algeria algeria algeria algeria
       </h1>
       <h1>
+        algeria algeria algeria algeria algeria algeria algeria algeria algeria
         algeria algeria algeria algeria algeria algeria algeria algeria algeria
       </h1>
     </div>

@@ -8,7 +8,7 @@ const First: Component = () => {
   return (
     <div class="first">
       <Text scrollY={scrollY()} />
-      <Image scrollY={scrollY()} />
+      <Image />
       <Text isOutlined={true} scrollY={scrollY()} />
     </div>
   );

@@ -8,6 +8,42 @@ $text-color: #222;
   font-family: "Bai Jamjuree", sans-serif;
 }
 
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -84,30 +120,75 @@ ul {
 
 .header {
   text-align: center;
-  padding: 80px 0;
+  padding: 1rem 0 0 0;
   color: $text-color;
   h1 {
     font-family: "Marck Script", cursive;
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+    font-size: 2em;
     text-transform: capitalize;
   }
-  p {
-    letter-spacing: 1px;
-    font-size: 2rem;
-    padding: 20px 80px;
+  div {
+    width: 55%;
+    margin: auto;
+    p {
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      padding: 0.7rem;
+      line-height: 120%;
+    }
+  }
+}
+
+.three {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  height: 100vh;
+  &.animate div {
+    height: 78%;
+  }
+  div {
+    height: 0;
+    width: 25%;
+    text-align: center;
+    overflow: hidden;
+    will-change: height;
+    transition: height 1s ease;
+    img {
+      height: 430px;
+      min-height: 430px;
+      max-height: 430px;
+    }
+    /*
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    clip-path: inset(0 0 100% 0);
+    will-change: clip-path;
+    transition: clip-path 0.5s ease-out;
+    &:nth-of-type(1) {
+      background-image: url("src/assets/three/1.jpg");
+    }
+    &:nth-of-type(2) {
+      background-image: url("src/assets/three/2.jpg");
+    }
+    &:nth-of-type(3) {
+      background-image: url("src/assets/three/3.jpg");
+    }
+    */
   }
 }
 
 .first {
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   position: relative;
   text-align: center;
-  padding-top: 60px;
+  padding-top: 4rem;
+  overflow: hidden;
   .text {
     position: absolute;
-    top: 80%;
+    top: 120%;
     left: 0;
     color: #fff;
     white-space: nowrap;
@@ -131,14 +212,14 @@ ul {
     }
     h1:first-of-type {
       transform: translate3d(
-        calc(var(--scroll-y) * -0.5),
+        calc(var(--scroll-y) * -0.5 - 50%),
         calc(var(--scroll-y) * -0.9),
         0
       );
     }
     h1:last-of-type {
       transform: translate3d(
-        calc(var(--scroll-y) * 0.5),
+        calc(var(--scroll-y) * 0.5 - 50%),
         calc(var(--scroll-y) * -0.9),
         0
       );
@@ -147,8 +228,7 @@ ul {
   img {
     position: relative;
     z-index: 2;
-    height: 200%;
-    transform: translate3d(0, calc(var(--scroll-y) * -0.8), 0);
+    height: 100%;
     object-fit: cover;
   }
 }
@@ -184,6 +264,11 @@ ul {
       letter-spacing: 2px;
       transition: opacity 0.3s ease-out;
       z-index: 2;
+      span {
+        display: block;
+        padding: 10px;
+        border: 2px solid #fff;
+      }
       &:hover {
         opacity: 1;
       }
@@ -225,14 +310,12 @@ ul {
   }
 }
 
-.credit {
-  position: absolute;
-  left: 50%;
-  bottom: 30px;
-  transform: translateX(-50%);
+.footer {
+  padding: 3rem;
+  font-size: 0.85rem;
   text-align: center;
   a {
     color: #222;
-    font-size: 0.85rem;
+    margin: 0 5px;
   }
 }

@@ -1,4 +1,4 @@
-import { type Component, For } from "solid-js";
+import { type Component, For, createEffect } from "solid-js";
 import WilayaName from "./WilayaName";
 import WilayaImage from "./WilayaImage";
 import wilayas, { type Wilaya } from "../../../data/wilayas";
